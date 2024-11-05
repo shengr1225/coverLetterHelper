@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/services/rooms/rooms.ts"],
+  "sourcesContent": ["import type { SendMessageInput } from 'types/graphql'\n\nimport type { NewMessageChannelType } from 'src/subscriptions/newMessage/newMessage'\n\nimport { logger } from 'src/lib/logger'\n\nexport const room = ({ id }) => [id]\n\nexport const sendMessage = async (\n  { input }: { input: SendMessageInput },\n  { context }: { context: { pubSub: NewMessageChannelType } }\n) => {\n  logger.debug({ input }, 'sending message ....')\n\n  const { roomId, from, body } = input\n\n  context.pubSub.publish('newMessage', roomId, { from, body })\n\n  return input\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAIA;;;;;;oBAAe;AAER,MAAMA,OAAOA,CAAC;EAAEC;AAAG,MAAM,CAACA,EAAE;AAE5B,MAAMC,cAAc,OACzB;EAAEC;AAAmC,GACrC;EAAEC;AAAwD,MACvD;AACHC,uBAAOC,MAAM;IAAEH;EAAM,GAAG,sBAAsB;AAE9C,QAAM;IAAEI;IAAQC;IAAMC;EAAK,IAAIN;AAE/BC,UAAQM,OAAOC,QAAQ,cAAcJ,QAAQ;IAAEC;IAAMC;EAAK,CAAC;AAE3D,SAAON;AACT;",
+  "names": ["room", "id", "sendMessage", "input", "context", "logger", "debug", "roomId", "from", "body", "pubSub", "publish"]
+}

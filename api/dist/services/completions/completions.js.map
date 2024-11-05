@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/services/completions/completions.ts"],
+  "sourcesContent": ["import { chatCompletion } from 'src/lib/openai'\n\nexport const ChatCompletion = ({ input }) => {\n  return chatCompletion(input)\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;;;;;oBAAuB;AAEhB,MAAMA,iBAAiBA,CAAC;EAAEC;AAAM,MAAM;AAC3C,aAAOC,8BAAeD,KAAK;AAC7B;",
+  "names": ["ChatCompletion", "input", "chatCompletion"]
+}

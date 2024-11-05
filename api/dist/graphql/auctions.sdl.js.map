@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/auctions.sdl.ts"],
+  "sourcesContent": ["// api/src/graphql/auctions.sdl.ts\n\nexport const schema = gql`\n  type Query {\n    auction(id: ID!): Auction @requireAuth\n  }\n\n  type Auction {\n    id: ID!\n    title: String!\n    highestBid: Bid\n    bids: [Bid!]!\n  }\n\n  type Bid {\n    amount: Int!\n  }\n\n  type Mutation {\n    bid(input: BidInput!): Bid @requireAuth\n  }\n\n  input BidInput {\n    auctionId: ID!\n    amount: Int!\n  }\n`\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAEyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}

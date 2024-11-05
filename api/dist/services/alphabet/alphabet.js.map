@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/services/alphabet/alphabet.ts"],
+  "sourcesContent": ["import { Repeater } from '@redwoodjs/realtime'\n\nimport { logger } from 'src/lib/logger'\n\nexport const alphabet = async () => {\n  return new Repeater<string>(async (push, stop) => {\n    const letters = 'abcdefghijklmnopqrstuvwxyz'.split('')\n\n    const publish = () => {\n      const letter = letters.shift()\n\n      if (letter) {\n        logger.debug({ letter }, 'publishing letter...')\n        push(letter)\n      }\n\n      if (letters.length === 0) {\n        stop()\n      }\n    }\n\n    const interval = setInterval(publish, 1000)\n\n    stop.then(() => {\n      logger.debug('cancel')\n      clearInterval(interval)\n    })\n\n    publish()\n  })\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,sBAAyB;AAEzB,oBAAe;AAER,MAAMA,WAAW,YAAY;AAClC,SAAO,IAAIC,yBAAiB,OAAOC,MAAMC,SAAS;AAChD,UAAMC,UAAU,6BAA6BC,MAAM,EAAE;AAErD,UAAMC,UAAUA,MAAM;AACpB,YAAMC,SAASH,QAAQI,MAAM;AAE7B,UAAID,QAAQ;AACVE,6BAAOC,MAAM;UAAEH;QAAO,GAAG,sBAAsB;AAC/CL,aAAKK,MAAM;MACb;AAEA,UAAIH,QAAQO,WAAW,GAAG;AACxBR,aAAK;MACP;IACF;AAEA,UAAMS,eAAWC,oBAAAA,SAAYP,SAAS,GAAI;AAE1CH,SAAKW,KAAK,MAAM;AACdL,2BAAOC,MAAM,QAAQ;AACrBK,oBAAcH,QAAQ;IACxB,CAAC;AAEDN,YAAQ;EACV,CAAC;AACH;",
+  "names": ["alphabet", "Repeater", "push", "stop", "letters", "split", "publish", "letter", "shift", "logger", "debug", "length", "interval", "_setInterval", "then", "clearInterval"]
+}

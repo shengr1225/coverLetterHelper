@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/services/fastAndSlowFields/fastAndSlowFields.ts"],
+  "sourcesContent": ["import { logger } from 'src/lib/logger'\n\nconst wait = (time: number) =>\n  new Promise((resolve) => setTimeout(resolve, time))\n\nexport const fastField = async () => {\n  return 'I am fast'\n}\n\nexport const slowField = async (_, { waitFor = 5000 }) => {\n  logger.debug('waiting on slowField')\n  await wait(waitFor)\n  return 'I am slow'\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,oBAAe;AAEf,MAAMA,OAAQC,UACZ,IAAAC,eAAAA,QAAaC,iBAAYC,mBAAAA,SAAWD,SAASF,IAAI,CAAC;AAE7C,MAAMI,YAAY,YAAY;AACnC,SAAO;AACT;AAEO,MAAMC,YAAY,OAAOC,GAAG;EAAEC,UAAU;AAAK,MAAM;AACxDC,uBAAOC,MAAM,sBAAsB;AACnC,QAAMV,KAAKQ,OAAO;AAClB,SAAO;AACT;",
+  "names": ["wait", "time", "_Promise", "resolve", "_setTimeout", "fastField", "slowField", "_", "waitFor", "logger", "debug"]
+}

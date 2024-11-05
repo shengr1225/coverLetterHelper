@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/server.ts"],
+  "sourcesContent": ["import { createServer } from '@redwoodjs/api-server'\n\nimport { logger } from 'src/lib/logger'\n\nasync function main() {\n  const server = await createServer({\n    logger,\n  })\n\n  await server.start()\n}\n\nmain()\n"],
+  "mappings": "AAAA,wBAA6B;AAE7B,oBAAe;AAEf,eAAeA,OAAO;AACpB,QAAMC,SAAS,UAAMC,gCAAa;IAChCC;EACF,CAAC;AAED,QAAMF,OAAOG,MAAM;AACrB;AAEAJ,KAAK;",
+  "names": ["main", "server", "createServer", "logger", "start"]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/alphabet.sdl.ts"],
+  "sourcesContent": ["export const schema = gql`\n  type Query {\n    \"\"\"\n    A field that spells out the letters of the alphabet\n    Maybe you want to @stream this field ;)\n    \"\"\"\n    alphabet: [String!]! @skipAuth\n  }\n`\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;",
+  "names": ["schema", "gql"]
+}

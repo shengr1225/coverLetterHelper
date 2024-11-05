@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/completions.sdl.ts"],
+  "sourcesContent": ["export const schema = gql`\n  type Choice {\n    delta: Delta\n  }\n  type Delta {\n    content: String\n    tool_calls: [ToolCall]\n    role: ROLE\n  }\n  type ToolCall {\n    function: Function\n  }\n  type Function {\n    name: String\n    arguments: String\n  }\n  type CompletionChunk {\n    choices: [Choice]!\n  }\n  enum ROLE {\n    assistant\n    user\n  }\n\n  type Query {\n    ChatCompletion(input: ChatCompletionInput): [CompletionChunk]! @skipAuth\n  }\n\n  input ChatCompletionInput {\n    resume: String!\n    aboutCompany: String!\n    aboutJob: String!\n  }\n`\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}
