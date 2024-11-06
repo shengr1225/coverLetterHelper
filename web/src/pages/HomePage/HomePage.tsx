@@ -64,7 +64,7 @@ const HomePage = () => {
       })
     }
 
-    fetch('/.redwood/functions/graphql', {
+    fetch('/api/graphql', {
       method: 'POST',
       headers: {
         Accept: 'multipart/mixed',
