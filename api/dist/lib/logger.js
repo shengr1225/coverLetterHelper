@@ -21,7 +21,11 @@ __export(logger_exports, {
 });
 module.exports = __toCommonJS(logger_exports);
 var import_logger = require("@redwoodjs/api/logger");
-const logger = (0, import_logger.createLogger)({});
+const logger = (0, import_logger.createLogger)({
+  options: {
+    level: "debug"
+  }
+});
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   logger

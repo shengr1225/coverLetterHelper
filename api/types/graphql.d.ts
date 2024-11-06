@@ -324,6 +324,13 @@ export type ResolversParentTypes = {
   ToolCall: ToolCall;
 };
 
+export type liveDirectiveArgs = {
+  if?: Maybe<Scalars['Boolean']>;
+  throttle?: Maybe<Scalars['Int']>;
+};
+
+export type liveDirectiveResolver<Result, Parent, ContextType = RedwoodGraphQLContext, Args = liveDirectiveArgs> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
+
 export type requireAuthDirectiveArgs = {
   roles?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
@@ -538,6 +545,7 @@ export type Resolvers<ContextType = RedwoodGraphQLContext> = {
 };
 
 export type DirectiveResolvers<ContextType = RedwoodGraphQLContext> = {
+  live: liveDirectiveResolver<any, any, ContextType>;
   requireAuth: requireAuthDirectiveResolver<any, any, ContextType>;
   skipAuth: skipAuthDirectiveResolver<any, any, ContextType>;
 };
