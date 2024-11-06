@@ -21,8 +21,18 @@ import { chatCompletion } from 'src/lib/openai'
  */
 export const handler = async (event: APIGatewayEvent, _context: Context) => {
   logger.info(`${event.httpMethod} ${event.path}: chatCompletion function`)
-
-  const response = await chatCompletion(event.body)
+  let response
+  try {
+    response = await chatCompletion(event.body)
+  } catch (err) {
+    return {
+      statusCode: 500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: err,
+    }
+  }
 
   return {
     statusCode: 200,
