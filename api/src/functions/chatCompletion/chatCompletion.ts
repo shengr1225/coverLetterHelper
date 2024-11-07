@@ -3,6 +3,11 @@ import type { APIGatewayEvent, Context } from 'aws-lambda'
 import { logger } from 'src/lib/logger'
 import { chatCompletion } from 'src/lib/openai'
 
+export const config = {
+  maxDuration: 30,
+  memory: 512,
+}
+
 /**
  * The handler function is your code that processes http request events.
  * You can use return and throw to send a response or error, respectively.
