@@ -25,6 +25,7 @@ export const handler = async (event: APIGatewayEvent, _context: Context) => {
   try {
     response = await chatCompletion(event.body)
   } catch (err) {
+    console.log(err)
     return {
       statusCode: 500,
       headers: {

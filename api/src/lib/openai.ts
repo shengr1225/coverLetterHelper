@@ -104,6 +104,8 @@ export const chatCompletion = async (body) => {
     temperature: 1.2,
   }
 
+  console.log(`about to request chat completion`)
   const stream = await openai.chat.completions.create(params)
+  console.log(`return data: ${stream}`)
   return stream
 }

@@ -116,7 +116,9 @@ const chatCompletion = async (body) => {
     stream: true,
     temperature: 1.2
   };
+  console.log(`about to request chat completion`);
   const stream = await openai.chat.completions.create(params);
+  console.log(`return data: ${stream}`);
   return stream;
 };
 // Annotate the CommonJS export names for ESM import in node:

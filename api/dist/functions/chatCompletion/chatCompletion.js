@@ -36,7 +36,19 @@ var import_openai = require("../../lib/openai");
 var import_store = require("@redwoodjs/context/dist/store");
 const __rw_handler = async (event, _context) => {
   import_logger.logger.info(`${event.httpMethod} ${event.path}: chatCompletion function`);
-  const response = await (0, import_openai.chatCompletion)(event.body);
+  let response;
+  try {
+    response = await (0, import_openai.chatCompletion)(event.body);
+  } catch (err) {
+    console.log(err);
+    return {
+      statusCode: 500,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: err
+    };
+  }
   return {
     statusCode: 200,
     headers: {
