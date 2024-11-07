@@ -26,15 +26,28 @@ export const config = {
  */
 export const handler = async (event: APIGatewayEvent, _context: Context) => {
   logger.info(`${event.httpMethod} ${event.path}: chatCompletion function`)
-  console.log("ddD")
-  let response = await chatCompletion(event.body)
-  console.log(response)
-
-  return {
-    statusCode: 200,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: response.toReadableStream(),
+  
+  try{
+    let response = await chatCompletion(event.body)
+    const streamRes = response.toReadableStream()
+    console.log(streamRes)
+    return {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: streamRes,
   }
+  }catch(e){
+    console.log(e)
+    return {
+      statusCode: 500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({error: e}),
+    }
+  }
+
+  
 }
