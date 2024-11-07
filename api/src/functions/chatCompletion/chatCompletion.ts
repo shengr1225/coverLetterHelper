@@ -21,6 +21,7 @@ import { chatCompletion } from 'src/lib/openai'
  */
 export const handler = async (event: APIGatewayEvent, _context: Context) => {
   logger.info(`${event.httpMethod} ${event.path}: chatCompletion function`)
+  console.log("ddD")
   let response = await chatCompletion(event.body)
   console.log(response)
 
