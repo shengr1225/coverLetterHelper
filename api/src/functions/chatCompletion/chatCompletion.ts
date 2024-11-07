@@ -35,8 +35,6 @@ export const handler = async (event: APIGatewayEvent, _context: Context) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      data: 'test function',
-    }),
+    body: response.toReadableStream(),
   }
 }
